@@ -7,12 +7,6 @@ class MotifFinding:
         if self.seqs:
             self.alphabet = "ACGT"  # Assuming DNA sequences only
 
-    def __len__(self):
-        return len(self.seqs)
-
-    def __getitem__(self, n):
-        return self.seqs[n]
-
     def seq_size(self, i):
         return len(self.seqs[i])
 
@@ -66,12 +60,6 @@ class MotifFinding:
         return res, best_score
 
     def heuristic_consensus(self):
-        """
-        Heuristic approach to find the consensus motif.
-        
-        Returns:
-            list: Starting indices of the motif in each sequence.
-        """
         res = [0] * len(self.seqs)
         max_score = -1
         partial = [0, 0]
